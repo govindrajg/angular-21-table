@@ -1,11 +1,21 @@
-<app-top-bar></app-top-bar>
+<div style="text-align:left;width:500px;">
+    <h1>
+        {{ title }}!
+    </h1>
 
-<div class="container">
-  <router-outlet></router-outlet>
+    <table *ngIf="arrBirds">
+        <!-- ADD HEADERS -->
+        <tr>
+            <th>ID</th>
+                <th>Name of Bird</th>
+                    <th>Type of Bird</th>
+        </tr>
+
+        <!-- BIND ARRAY TO TABLE -->
+        <tr *ngFor="let bird of arrBirds">
+            <td>{{bird.ID}}</td>
+                <td>{{bird.Name}}</td>
+                    <td>{{bird.Type}}</td>
+        </tr>
+    </table>
 </div>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

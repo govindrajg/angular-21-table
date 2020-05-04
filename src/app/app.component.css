@@ -1,9 +1,10 @@
-p {
-  font-family: Lato;
+table, th, td 
+{
+    margin: 10px 0;
+    border: solid 1px #333;
+    padding: 2px 4px;
+    font: 15px Verdana;
 }
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+th {
+    font-weight:bold;
+}

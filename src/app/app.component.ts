@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/https';
+import { HttpErrorResponse } from '@angular/common/https';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent  {}
+export class AppComponent {
+  title = 'JSON to Table Example';
+  constructor (private httpService: HttpClient) { }
+  arrBirds: string [];
 
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+  ngOnInit () {
+    this.httpService.get('./assets/birds.json').subscribe(
+      data => {
+        this.arrBirds = data as string [];	 // FILL THE ARRAY WITH DATA.
+        //  console.log(this.arrBirds[1]);
+      },
+      (err: HttpErrorResponse) => {
+        console.log (err.message);
+      }
+    );
+  }
+}
